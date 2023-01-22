@@ -6,11 +6,11 @@ let showsApp = {
     searchInput: null,
     showsDataSection: null,
     init: function(){
-        console.log("app started");
+        
         this.searchInput = document.querySelector("#search-input");
         this.searchInput.addEventListener("keyup",(e) => {
-            if(e.keyCode == 13){
-                console.log("enter clicked");
+            if(e.key === "Enter"){
+                
                 this.loadData(this.searchInput.value);
             }
         });
@@ -48,19 +48,22 @@ let showsApp = {
             if(!show.name) continue;
             showTitle = show.name;
 
-            let network = show.network.name || "-";
+          /*  let network;
+            show.network.name ? network : "-";
 
-            let officialSite = show.officialSite || "-";
+            let officialSite;
+            show.officialSite ? officialSite : "-";
 
-            let premiered = show.premiered || "-";
+            let premiered;
+            show.premiered ? premiered : "-";*/
 
             let summary = show.summary;
-            summary = `
+           /* summary = `
                 <p> Show: ${showTitle} </p>
                 <p> Date: ${premiered} </p>
                 <p> Network: ${network} </p>
                 <br>
-            ` + summary;
+            ` + summary;*/
 
             allBoxesHtml += this.getShowBoxByTemplate(imgSrc,showTitle,genres,summary);
         }

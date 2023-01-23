@@ -1,12 +1,14 @@
 window.onload = function(){
     showsApp.init();
 }
+function loadFromButton(){
+    showsApp.loadData(showsApp.searchInput.value);
+}
 let showsApp = {
     data: null,
     searchInput: null,
     showsDataSection: null,
     init: function(){
-        
         this.searchInput = document.querySelector("#search-input");
         this.searchInput.addEventListener("keyup",(e) => {
             if(e.key === "Enter"){
@@ -48,22 +50,7 @@ let showsApp = {
             if(!show.name) continue;
             showTitle = show.name;
 
-          /*  let network;
-            show.network.name ? network : "-";
-
-            let officialSite;
-            show.officialSite ? officialSite : "-";
-
-            let premiered;
-            show.premiered ? premiered : "-";*/
-
-            let summary = show.summary;
-           /* summary = `
-                <p> Show: ${showTitle} </p>
-                <p> Date: ${premiered} </p>
-                <p> Network: ${network} </p>
-                <br>
-            ` + summary;*/
+            let summary = show.summary || "Description is missing";
 
             allBoxesHtml += this.getShowBoxByTemplate(imgSrc,showTitle,genres,summary);
         }

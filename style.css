@@ -55,7 +55,7 @@ body{
     position: relative;
     margin: .4em;
     padding: .6em;
-    width: 20em;
+    width: 16em;
     color: #e4e4e4;
     background: linear-gradient(0deg, rgba(63,63,63,1) 9%, rgba(48,43,43,1) 43%);
     font-size: .8rem;
@@ -95,11 +95,11 @@ body{
     opacity: 1;
 }
 *{
-    scrollbar-width: 1em;
+    scrollbar-width: .5em;
     scrollbar-color: #111 #333;
 }
 *::-webkit-scrollbar{
-    width: 1em;
+    width: .5em;
 }
 *::-webkit-scrollbar-track{
     background-color: #333;
@@ -115,3 +115,12 @@ body{
 #tv-maze-info a{
     color: #888;
 }
+@media only screen and (max-width: 600px) {
+    #search-section input[type="text"]{
+        width: 60%;
+        font-size: .8em;
+    }
+    #search-section input[type="button"]{
+        width: 30%;
+    }
+  }

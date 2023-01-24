@@ -28,34 +28,39 @@ let showsApp = {
         this.data = showData;
         
         let allBoxesHtml = "";
+        
+        if(showData.length > 0){
+            for(let i=0; i < showData.length; i++){
+                let show = showData[i];
+                let score = show.score;
+                show = show.show;
 
-        for(let i=0; i < showData.length; i++){
-            let show = showData[i];
-            let score = show.score;
-            show = show.show;
+                let genres = show.genres.join(", ");
+                
+                let imgSrc = null;
+                let imgSrcOriginal = null;
+                if(show.image) {
+                    imgSrc = show.image.medium;
+                    imgSrcOriginal = show.image.original;
+                } else{
+                    imgSrc = "https://cdn.pixabay.com/photo/2013/07/12/17/47/test-pattern-152459_1280.png";
+                    imgSrcOriginal = "https://cdn.pixabay.com/photo/2013/07/12/17/47/test-pattern-152459_1280.png";
+                }
 
-            let genres = show.genres.join(", ");
-            
-            let imgSrc = null;
-            let imgSrcOriginal = null;
-            if(show.image) {
-                imgSrc = show.image.medium;
-                imgSrcOriginal = show.image.original;
-            } else{
-                imgSrc = "https://cdn.pixabay.com/photo/2013/07/12/17/47/test-pattern-152459_1280.png";
-                imgSrcOriginal = "https://cdn.pixabay.com/photo/2013/07/12/17/47/test-pattern-152459_1280.png";
+                let showTitle = null;
+                if(!show.name) continue;
+                showTitle = show.name;
+
+                let summary = show.summary || "Description is missing";
+
+                allBoxesHtml += this.getShowBoxByTemplate(imgSrc,showTitle,genres,summary);
             }
 
-            let showTitle = null;
-            if(!show.name) continue;
-            showTitle = show.name;
-
-            let summary = show.summary || "Description is missing";
-
-            allBoxesHtml += this.getShowBoxByTemplate(imgSrc,showTitle,genres,summary);
+            this.showsDataSection.innerHTML = allBoxesHtml;
         }
-
-        this.showsDataSection.innerHTML = allBoxesHtml;
+        else{
+            console.log("error")
+        }
     },
     getShowBoxByTemplate: function(imgSrc, title, genres, overview){
         return `

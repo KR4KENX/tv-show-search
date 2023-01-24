@@ -5,7 +5,7 @@ body{
     font-family: "Work Sans", Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, rgba(25, 25, 25, 1) 7%, rgba(17, 17, 17, 1) 81%);
+    background: linear-gradient(0, rgba(25, 25, 25, 1) 7%, rgba(17, 17, 17, 1) 81%);
 }
 #search-section{
     display: flex;
@@ -15,9 +15,9 @@ body{
     background-color: #282828;
 }
 #search-section input[type="text"]{
-    background-color: #222;
+    background-color: #111;
     color: #f2f2f2;
-    border: 3px solid #777;
+    border: 3px solid #111;
     font-size: .8rem;
     border-radius: 10px;
     transition: .1s;
@@ -30,14 +30,14 @@ body{
 #search-section input[type="button"]{
     background-color: #222;
     color: #f2f2f2;
-    border: 2px solid #777;
+    border: 2px solid #444;
     border-radius: 10px;
     width: 15%;
     margin: 1em;
     padding: .3em;
     text-transform: capitalize;
     font-size: .9em;
-    transition: .3s ease-out;
+    transition: .1s ease-out;
 }
 
 #search-section input[type="button"]:hover{
@@ -45,6 +45,12 @@ body{
     border-color: rgba(0, 0, 0, 0.149);
     box-shadow: rgba(0, 0, 0, 0.102) 0 4px 12px;
     color: #f2f2f2;
+    border: 2px solid #777;
+}
+#search-section input[type="button"]:active{
+    background-color: #222;
+    box-shadow: 10px 5px 5px #222;
+    border: 2px solid #888;
 }
 .shows-data-section{
     display: flex;
@@ -54,12 +60,13 @@ body{
 .show-box{
     position: relative;
     margin: .4em;
-    padding: .6em;
+    padding: 1em;
     width: 16em;
     color: #e4e4e4;
     background: linear-gradient(57deg, rgba(31, 31, 31, 1) 34%, rgba(11, 11, 11, 1) 99%);
+    border: 4px solid #111;
     font-size: .8rem;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .show-box img{
     width: 100%;
@@ -72,14 +79,14 @@ body{
 }
 .show-title{
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 .show-genres{
     font-weight: 400;
 }
 .show-overview{
     padding: .5rem;
-    background-color: #3f3f3f;
+    background-color: #2f2f2f;
     opacity: 0;
     position: absolute;
     top: 0;
